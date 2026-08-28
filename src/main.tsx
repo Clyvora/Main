@@ -64,8 +64,10 @@ const projects: Project[] = [
     label: 'Image resizer',
     status: 'Beta',
     copy: 'Resize, compress, and convert one image locally with conservative browser memory limits.',
+    image: '/resize-preview.png',
     alt: 'Clyvora Resize local image workspace',
     href: 'https://www.resize.clyvora.tech',
+    repo: 'https://github.com/Clyvora/Resize',
     features: ['Pre-decode dimension checks', 'Aspect ratio and percentage resizing', 'PNG, JPEG, and WebP output'],
     formats: 'PNG · JPEG · WEBP',
     accent: 'resize',
@@ -76,8 +78,10 @@ const projects: Project[] = [
     label: 'Public-link audio',
     status: 'Experimental',
     copy: 'Retrieve available audio from supported public links when you have permission to do so.',
+    image: '/fetch-preview.png',
     alt: 'Clyvora Fetch public link resolver',
     href: 'https://www.fetch.clyvora.tech',
+    repo: 'https://github.com/Clyvora/Fetch',
     features: ['Public SoundCloud tracks initially', 'Clear unsupported and unavailable states', 'Permission-first product boundaries'],
     formats: 'SUPPORTED PUBLIC LINKS',
     accent: 'fetch',
@@ -117,8 +121,8 @@ function ProjectCard({ project }: { project: Project }) {
           {project.image ? <img
             src={project.image}
             alt={project.alt}
-            width={project.accent === 'lens' ? 1729 : 1672}
-            height={project.accent === 'lens' ? 910 : 941}
+            width={1730}
+            height={909}
             loading="lazy"
             decoding="async"
           /> : <div className="project-placeholder" aria-label={project.alt}>{project.icon}<strong>{project.name.replace('Clyvora ', '')}</strong></div>}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1730" height="909" viewBox="0 0 1730 909">
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" fill="none" stroke="#fff" stroke-opacity=".055"/></pattern>
+    <radialGradient id="glow" cx="70%" cy="48%" r="50%"><stop stop-color="#bcd3d7" stop-opacity=".13"/><stop offset="1" stop-color="#080909" stop-opacity="0"/></radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="13"/></filter>
+  </defs>
+  <rect width="1730" height="909" fill="#080909"/><rect width="1730" height="909" fill="url(#grid)"/><rect width="1730" height="909" fill="url(#glow)"/>
+  <circle cx="-30" cy="455" r="530" fill="none" stroke="#d8d2c8" stroke-opacity=".28"/><circle cx="1196" cy="986" r="530" fill="none" stroke="#d8d2c8" stroke-opacity=".22"/>
+  <circle cx="504" cy="136" r="7" fill="#fff8ec"/><circle cx="504" cy="136" r="18" fill="#fff1d7" opacity=".22" filter="url(#blur)"/>
+  <circle cx="1385" cy="770" r="7" fill="#fff8ec"/><circle cx="1385" cy="770" r="18" fill="#fff1d7" opacity=".22" filter="url(#blur)"/>
+  <text x="67" y="462" fill="#f4f1ea" font-family="Arial, sans-serif" font-size="112" letter-spacing="-6">Clyvora</text>
+  <text x="455" y="462" fill="#f4f1ea" font-family="Georgia, serif" font-size="98" font-style="italic">Convert</text>
+  <text x="70" y="548" fill="#d4d2cc" font-family="Arial, sans-serif" font-size="40" letter-spacing="-1.4">Audio and video conversion. On your device.</text>
+  <g fill="#0b0d0d" stroke="#d9e8ea" stroke-opacity=".55" stroke-width="2">
+    <rect x="860" y="198" width="112" height="86" rx="14"/><rect x="860" y="316" width="112" height="86" rx="14"/><rect x="860" y="434" width="112" height="86" rx="14"/><rect x="860" y="552" width="112" height="86" rx="14"/>
+    <rect x="1474" y="198" width="112" height="86" rx="14"/><rect x="1474" y="316" width="112" height="86" rx="14"/><rect x="1474" y="434" width="112" height="86" rx="14"/><rect x="1474" y="552" width="112" height="86" rx="14"/>
+  </g>
+  <g fill="#f1f5f5" font-family="Arial, sans-serif" font-size="24" text-anchor="middle"><text x="916" y="250">MP3</text><text x="916" y="368">WAV</text><text x="916" y="486">MP4</text><text x="916" y="604">WEBM</text><text x="1530" y="250">OPUS</text><text x="1530" y="368">OGG</text><text x="1530" y="486">MP4</text><text x="1530" y="604">WEBM</text></g>
+  <g fill="none" stroke="#d8e7e9" stroke-opacity=".34" stroke-width="2"><path d="M972 241C1060 241 1058 374 1152 393"/><path d="M972 359C1050 359 1084 398 1152 416"/><path d="M972 477C1050 477 1084 439 1152 424"/><path d="M972 595C1060 595 1058 457 1152 437"/><path d="M1296 393C1388 374 1387 241 1474 241"/><path d="M1296 416C1365 398 1398 359 1474 359"/><path d="M1296 424C1365 439 1398 477 1474 477"/><path d="M1296 437C1388 457 1387 595 1474 595"/></g>
+  <rect x="1147" y="335" width="154" height="154" rx="28" fill="#0d1010" stroke="#eef5f5" stroke-opacity=".75" stroke-width="2"/>
+  <circle cx="1224" cy="412" r="45" fill="none" stroke="#bcd3d7" stroke-opacity=".5" stroke-width="9" stroke-dasharray="2 7"/><circle cx="1224" cy="412" r="8" fill="#fff8eb"/>
+  <text x="1224" y="525" fill="#abc3c7" font-family="Arial, sans-serif" font-size="15" letter-spacing="4" text-anchor="middle">LOCAL ONLY</text>
+</svg>

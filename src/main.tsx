@@ -8,7 +8,9 @@ import {
   Code2,
   FileJson2,
   Image,
+  Link2,
   LockKeyhole,
+  Music2,
 } from 'lucide-react'
 import './styles.css'
 import './project-home.css'
@@ -18,13 +20,13 @@ type Project = {
   label: string
   status: string
   copy: string
-  image: string
+  image?: string
   alt: string
   href: string
-  repo: string
+  repo?: string
   features: string[]
   formats: string
-  accent: 'lens' | 'convert'
+  accent: 'lens' | 'convert' | 'resize' | 'fetch'
   icon: ReactNode
 }
 
@@ -47,15 +49,39 @@ const projects: Project[] = [
     name: 'Clyvora Convert',
     label: 'Media converter',
     status: 'Beta',
-    copy: 'Convert images and audio on your device, with batch tools and no upload queue.',
+    copy: 'Convert local audio and video on your device with a focused queue and no upload server.',
     image: '/convert-preview.png',
-    alt: 'Clyvora Convert processing image and audio formats locally',
+    alt: 'Clyvora Convert processing audio and video formats locally',
     href: 'https://www.convert.clyvora.tech',
     repo: 'https://github.com/Clyvora/Convert',
-    features: ['Batch conversion and ZIP export', 'Image resize and quality controls', 'Offline use after first load'],
-    formats: 'PNG · JPG · WEBP · MP3 · WAV',
+    features: ['Audio and video conversion', 'Cancellation and immediate retry', 'Offline use after first load'],
+    formats: 'MP3 · WAV · OGG · OPUS · MP4 · WEBM',
     accent: 'convert',
+    icon: <Music2 aria-hidden="true" />,
+  },
+  {
+    name: 'Clyvora Resize',
+    label: 'Image resizer',
+    status: 'Beta',
+    copy: 'Resize, compress, and convert one image locally with conservative browser memory limits.',
+    alt: 'Clyvora Resize local image workspace',
+    href: 'https://www.resize.clyvora.tech',
+    features: ['Pre-decode dimension checks', 'Aspect ratio and percentage resizing', 'PNG, JPEG, and WebP output'],
+    formats: 'PNG · JPEG · WEBP',
+    accent: 'resize',
     icon: <Image aria-hidden="true" />,
+  },
+  {
+    name: 'Clyvora Fetch',
+    label: 'Public-link audio',
+    status: 'Experimental',
+    copy: 'Retrieve available audio from supported public links when you have permission to do so.',
+    alt: 'Clyvora Fetch public link resolver',
+    href: 'https://www.fetch.clyvora.tech',
+    features: ['Public SoundCloud tracks initially', 'Clear unsupported and unavailable states', 'Permission-first product boundaries'],
+    formats: 'SUPPORTED PUBLIC LINKS',
+    accent: 'fetch',
+    icon: <Link2 aria-hidden="true" />,
   },
 ]
 
@@ -88,14 +114,14 @@ function ProjectCard({ project }: { project: Project }) {
     <article className="project-card">
       <ExternalLink className="project-art-link" href={project.href}>
         <div className="project-art">
-          <img
+          {project.image ? <img
             src={project.image}
             alt={project.alt}
             width={project.accent === 'lens' ? 1729 : 1672}
             height={project.accent === 'lens' ? 910 : 941}
             loading="lazy"
             decoding="async"
-          />
+          /> : <div className="project-placeholder" aria-label={project.alt}>{project.icon}<strong>{project.name.replace('Clyvora ', '')}</strong></div>}
           <span className="project-format">{project.formats}</span>
         </div>
       </ExternalLink>
@@ -118,7 +144,7 @@ function ProjectCard({ project }: { project: Project }) {
 
         <div className="project-actions">
           <ExternalLink className="button button-primary" href={project.href}>Try it now <ArrowUpRight size={15} /></ExternalLink>
-          <ExternalLink className="text-link" href={project.repo}><Code2 size={15} />View source <ArrowUpRight size={13} /></ExternalLink>
+          {project.repo && <ExternalLink className="text-link" href={project.repo}><Code2 size={15} />View source <ArrowUpRight size={13} /></ExternalLink>}
         </div>
       </div>
     </article>
@@ -145,7 +171,7 @@ function App() {
 
       <div className="hero-content">
         <h1 id="hero-title">Useful file tools.<br /><i>Your files stay yours.</i></h1>
-        <p className="hero-copy">Clyvora builds focused browser tools for data and media. Local files are processed on your device; link imports contact the source host only after you request them.</p>
+        <p className="hero-copy">Clyvora builds focused tools for data and media. Lens, Convert, and Resize process supported local files on your device. Experimental Fetch sends a submitted public URL to Clyvora’s resolver and the source platform.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#projects">Explore the tools <ArrowDownRight size={16} /></a>
           <ExternalLink className="button button-secondary" href="https://github.com/Clyvora">Browse the code <ArrowUpRight size={16} /></ExternalLink>
@@ -156,7 +182,7 @@ function App() {
     <section id="projects" className="section projects" aria-labelledby="projects-title">
       <Reveal className="section-heading">
         <h2 id="projects-title">Tools you can<br /><i>use today.</i></h2>
-        <p>Small, focused utilities with a clear privacy boundary: selected files stay in your browser.</p>
+        <p>Four focused products with explicit maturity and network boundaries—not one oversized toolbox.</p>
       </Reveal>
 
       <div className="project-grid">
@@ -168,15 +194,15 @@ function App() {
       <div className="principle-orbit" aria-hidden="true"><span /></div>
       <Reveal className="principles-intro">
         <h2 id="principles-title">Privacy is<br /><i>the architecture.</i></h2>
-        <p>No vague promise and no hidden upload step. Clyvora tools are designed to do their work on the device already in front of you.</p>
+        <p>No blanket privacy claim. Local-file products keep supported files on the device; networked products explain exactly what leaves it.</p>
       </Reveal>
 
       <div className="principle-grid">
         <Reveal className="principle-card">
           <span>01</span>
           <LockKeyhole size={24} />
-          <h3>Local by default</h3>
-          <p>Your files are parsed and transformed inside the browser, not on a conversion server.</p>
+          <h3>Local files stay local</h3>
+          <p>Lens, Convert, and Resize parse or transform supported local files inside the browser.</p>
         </Reveal>
         <Reveal className="principle-card">
           <span>02</span>
@@ -187,8 +213,8 @@ function App() {
         <Reveal className="principle-card">
           <span>03</span>
           <Code2 size={24} />
-          <h3>Open to inspection</h3>
-          <p>The source is public. Inspect how the tools work, report a problem, or contribute an improvement.</p>
+          <h3>Network only where required</h3>
+          <p>Fetch sends a submitted public URL to a resolver because remote retrieval cannot happen entirely offline.</p>
         </Reveal>
       </div>
     </section>

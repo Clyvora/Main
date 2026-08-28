@@ -5,11 +5,13 @@
 ## Official projects
 
 - [Clyvora Lens](https://www.lens.clyvora.tech/) inspects, searches, filters, and converts JSON and CSV files locally in the browser.
-- [Clyvora Convert](https://www.convert.clyvora.tech/) converts images, audio, and video locally in the browser.
+- [Clyvora Convert](https://www.convert.clyvora.tech/) converts local audio and video in the browser (**Beta**).
+- [Clyvora Resize](https://www.resize.clyvora.tech/) resizes, compresses, and converts local images (**Beta**).
+- [Clyvora Fetch](https://www.fetch.clyvora.tech/) retrieves available audio from supported public links when the user has permission (**Experimental**).
 
 The source for Clyvora projects is published through the [Clyvora GitHub organization](https://github.com/Clyvora).
 
-The deployed sites use Vercel Web Analytics for anonymous, cookie-free page-view statistics. No custom analytics events are configured, and selected filenames and file contents are not sent to analytics.
+Lens, Convert, and Resize process supported local files on-device. Fetch is networked: it sends the submitted public URL to ClyvoraAPI and the supported source platform. The deployed sites use Vercel Web Analytics for anonymous, cookie-free page-view statistics. No custom analytics events are configured, and selected filenames, file contents, and submitted URLs are not sent to analytics.
 
 ## Development
 

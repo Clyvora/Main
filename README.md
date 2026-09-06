@@ -5,9 +5,11 @@
 ## Official projects
 
 - [Clyvora Lens](https://www.lens.clyvora.tech/) inspects, searches, filters, and converts JSON and CSV files locally in the browser.
-- [Clyvora Convert](https://www.convert.clyvora.tech/) converts local audio and video in the browser (**Beta**).
-- [Clyvora Resize](https://www.resize.clyvora.tech/) resizes, compresses, and converts local images (**Beta**).
-- [Clyvora Fetch](https://www.fetch.clyvora.tech/) retrieves available audio from supported public links when the user has permission (**Experimental**).
+- [Clyvora Convert](https://www.convert.clyvora.tech/) converts local audio and video. Its next release combines image resizing, compression and conversion with explicit public SoundCloud retrieval and direct handoff into compatible local conversion.
+
+Existing [Resize](https://www.resize.clyvora.tech/) and [Fetch](https://www.fetch.clyvora.tech/) links remain available during migration. This catalogue prepares the next release; it does not claim that the merger is deployed. Coordinate publication with Convert and ClyvoraAPI rollout. No redirects or domains were changed.
+
+Only already publicly discoverable projects belong in this catalogue. A local repository or planned product alone does not establish permission to publish its identity or a URL.
 
 The source for Clyvora projects is published through the [Clyvora GitHub organization](https://github.com/Clyvora).
 

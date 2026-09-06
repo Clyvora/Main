@@ -7,8 +7,6 @@ import {
   Check,
   Code2,
   FileJson2,
-  Image,
-  Link2,
   LockKeyhole,
   Music2,
 } from 'lucide-react'
@@ -47,45 +45,17 @@ const projects: Project[] = [
   },
   {
     name: 'Clyvora Convert',
-    label: 'Media converter',
+    label: 'Media workspace',
     status: 'Beta',
-    copy: 'Convert local audio and video on your device with a focused queue and no upload server.',
+    copy: 'Convert audio and video locally. The next release brings image resizing and public SoundCloud retrieval into the same workspace.',
     image: '/convert-preview.png',
     alt: 'Clyvora Convert processing audio and video formats locally',
     href: 'https://www.convert.clyvora.tech',
     repo: 'https://github.com/Clyvora/Convert',
-    features: ['Audio and video conversion', 'Cancellation and immediate retry', 'Offline use after first load'],
+    features: ['Local audio and video conversion', 'Image resizing joins in the next release', 'Public-link retrieval joins in the next release'],
     formats: 'MP3 · WAV · OGG · OPUS · MP4 · WEBM',
     accent: 'convert',
     icon: <Music2 aria-hidden="true" />,
-  },
-  {
-    name: 'Clyvora Resize',
-    label: 'Image resizer',
-    status: 'Beta',
-    copy: 'Resize, compress, and convert one image locally with conservative browser memory limits.',
-    image: '/resize-preview.png',
-    alt: 'Clyvora Resize local image workspace',
-    href: 'https://www.resize.clyvora.tech',
-    repo: 'https://github.com/Clyvora/Resize',
-    features: ['Pre-decode dimension checks', 'Aspect ratio and percentage resizing', 'PNG, JPEG, and WebP output'],
-    formats: 'PNG · JPEG · WEBP',
-    accent: 'resize',
-    icon: <Image aria-hidden="true" />,
-  },
-  {
-    name: 'Clyvora Fetch',
-    label: 'Public-link audio',
-    status: 'Experimental',
-    copy: 'Retrieve available audio from supported public links when you have permission to do so.',
-    image: '/fetch-preview.png',
-    alt: 'Clyvora Fetch public link resolver',
-    href: 'https://www.fetch.clyvora.tech',
-    repo: 'https://github.com/Clyvora/Fetch',
-    features: ['Public SoundCloud tracks initially', 'Clear unsupported and unavailable states', 'Permission-first product boundaries'],
-    formats: 'SUPPORTED PUBLIC LINKS',
-    accent: 'fetch',
-    icon: <Link2 aria-hidden="true" />,
   },
 ]
 
@@ -175,7 +145,7 @@ function App() {
 
       <div className="hero-content">
         <h1 id="hero-title">Useful file tools.<br /><i>Your files stay yours.</i></h1>
-        <p className="hero-copy">Clyvora builds focused tools for data and media. Lens, Convert, and Resize process supported local files on your device. Experimental Fetch sends a submitted public URL to Clyvora’s resolver and the source platform.</p>
+        <p className="hero-copy">Lens inspects structured data locally. Convert brings media tools together, with image resizing and public-link retrieval joining in the next release. Local files stay on-device; requested link retrieval uses ClyvoraAPI and the source platform.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#projects">Explore the tools <ArrowDownRight size={16} /></a>
           <ExternalLink className="button button-secondary" href="https://github.com/Clyvora">Browse the code <ArrowUpRight size={16} /></ExternalLink>
@@ -186,12 +156,13 @@ function App() {
     <section id="projects" className="section projects" aria-labelledby="projects-title">
       <Reveal className="section-heading">
         <h2 id="projects-title">Tools you can<br /><i>use today.</i></h2>
-        <p>Four focused products with explicit maturity and network boundaries—not one oversized toolbox.</p>
+        <p>Lens for structured data. Convert for media, with Resize and Fetch being brought into one workspace.</p>
       </Reveal>
 
       <div className="project-grid">
         {projects.map(project => <ProjectCard key={project.name} project={project} />)}
       </div>
+      <p className="project-copy">Existing tools remain available during migration: <ExternalLink href="https://www.resize.clyvora.tech">Resize</ExternalLink> · <ExternalLink href="https://www.fetch.clyvora.tech">Fetch</ExternalLink>.</p>
     </section>
 
     <section id="principles" className="section principles" aria-labelledby="principles-title">
@@ -206,7 +177,7 @@ function App() {
           <span>01</span>
           <LockKeyhole size={24} />
           <h3>Local files stay local</h3>
-          <p>Lens, Convert, and Resize parse or transform supported local files inside the browser.</p>
+          <p>Lens and Convert parse or transform supported local files inside the browser.</p>
         </Reveal>
         <Reveal className="principle-card">
           <span>02</span>
@@ -218,7 +189,7 @@ function App() {
           <span>03</span>
           <Code2 size={24} />
           <h3>Network only where required</h3>
-          <p>Fetch sends a submitted public URL to a resolver because remote retrieval cannot happen entirely offline.</p>
+          <p>Public-link retrieval sends a submitted URL to ClyvoraAPI and the supported source platform only when you request it.</p>
         </Reveal>
       </div>
     </section>

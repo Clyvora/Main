@@ -7,9 +7,10 @@ Clyvora tools process selected files locally on the user's device. They do not r
 ## Official projects
 
 - [Clyvora Lens](https://www.lens.clyvora.tech/): Inspect, search, filter, and convert JSON and CSV files locally in the browser.
-- [Clyvora Convert](https://www.convert.clyvora.tech/): Convert audio and video locally in the browser.
-- [Clyvora Resize](https://www.resize.clyvora.tech/): Resize, compress, and convert PNG, JPEG, and WebP images locally in the browser.
-- [Clyvora Fetch](https://www.fetch.clyvora.tech/): Retrieve available audio from supported public links when the user has permission.
+- [Clyvora Convert](https://www.convert.clyvora.tech/): Local audio and video conversion. The next release also combines local image resizing/compression/conversion and explicit public SoundCloud retrieval, with compatible media handed directly to local conversion.
+- Existing tools during migration: [Resize](https://www.resize.clyvora.tech/) for local images and [Fetch](https://www.fetch.clyvora.tech/) for supported public links. The merger is not yet described as deployed.
+
+Requested public-link retrieval sends the submitted URL to ClyvoraAPI and the supported source platform. Local files remain on-device. This public catalogue includes only already publicly discoverable projects.
 - [Clyvora on GitHub](https://github.com/Clyvora): Official source repositories for Clyvora projects.
 - [About Clyvora](https://www.clyvora.tech/about/): Brand identity, mission, privacy model, and official project links.
 

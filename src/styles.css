@@ -30,6 +30,14 @@
   box-sizing:border-box;
 }
 
+html {
+  scrollbar-width:none;
+}
+
+html::-webkit-scrollbar {
+  display:none;
+}
+
 body {
   margin:0;
   min-width:0;
@@ -86,6 +94,48 @@ button {
 
 .skip-link:focus {
   transform:translateY(0);
+}
+
+.scroll-signal {
+  position:fixed;
+  z-index:5;
+  right:18px;
+  bottom:18px;
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  padding:7px;
+  border:1px solid var(--surface-hover);
+  border-radius:50%;
+  background:color-mix(in srgb,var(--page) 86%,transparent);
+  color:var(--muted);
+  backdrop-filter:blur(10px);
+  transition:color .2s,transform .2s,border-color .2s;
+}
+.scroll-signal:hover,
+.scroll-signal:focus-visible {
+  color:var(--text);
+  border-color:var(--muted);
+  transform:translateY(-3px);
+}
+.scroll-signal svg {
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+.scroll-signal path {
+  fill:none;
+  stroke:currentColor;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-width:5;
+}
+.scroll-signal-track { opacity:.2; }
+.scroll-signal-progress {
+  stroke:var(--text);
+  stroke-dasharray:1;
+  transition:stroke-dashoffset .15s linear;
 }
 
 .site-shell {
@@ -213,7 +263,7 @@ button {
 .app-selector img { object-fit:contain; opacity:.6; transition:opacity .25s,transform .35s cubic-bezier(.2,.65,.2,1); }
 .app-selector:hover img { opacity:1; transform:translateY(-4px); }
 .app-selector[aria-pressed='true'] { background:var(--page); border-color:var(--surface-hover); color:var(--text); }
-.app-selector[aria-pressed='true'] img { opacity:1; transform:scale(1.08); }
+.app-selector[aria-pressed='true'] img { opacity:1; transform:scale(1.16); }
 
 .app-translation {
   display:block;
@@ -272,6 +322,7 @@ button {
   animation:arrive .8s ease .35s both;
 }
 
+
 .site-footer nav {
   display:flex;
   gap:25px;
@@ -291,11 +342,9 @@ button {
 @keyframes arrive {
   from {
     opacity:0;
-    transform:translateY(18px);
   }
   to {
     opacity:1;
-    transform:translateY(0);
   }
 }
 
@@ -438,4 +487,5 @@ html { scroll-behavior:smooth; }
   .brand-mark { width:28px; height:28px; }
   .brand h1 { font-size:clamp(18px,4.8vw,28px); }
   .brand-name { max-width:calc(100vw - 92px); }
+  .scroll-signal { right:12px; bottom:12px; width:36px; height:36px; padding:6px; }
 }

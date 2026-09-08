@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>document.documentElement.dataset.js = 'true';</script>
     <meta name="description" content="Explore Lens, Convert, and Live op Weg: data inspection, media conversion, and live train locations." />
     <meta name="author" content="Clyvora" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -60,30 +61,11 @@
     </script>
     <style>
       body { margin: 0; background: var(--page, #151515); }
-      [data-static-fallback] { box-sizing: border-box; max-width: 1120px; margin: auto; padding: 64px 24px; color: #f1f1ee; font: 16px/1.5 system-ui, sans-serif; }
-      [data-static-fallback] h1 { margin: 0 0 48px; font-size: 43px; text-align: center; }
-      [data-static-fallback] h2 { font-size: 30px; margin: 16px 0 8px; }
-      [data-static-fallback] .app-translation { display: block; margin-top: 6px; font-size: 14px; font-weight: 400; color: #a7a7a3; }
-      [data-static-fallback] p { color: #a7a7a3; }
-      [data-static-fallback] ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 24px; padding: 0; list-style: none; }
-      [data-static-fallback] li { padding: 30px; background: #202020; border-radius: 26px; }
-      [data-static-fallback] img { display: block; width: min(230px, 100%); height: auto; margin: auto; }
-      [data-static-fallback] a { color: #f1f1ee; }
-      @media (max-width: 560px) { [data-static-fallback] ul { grid-template-columns: 1fr; } }
     </style>
     <title>Clyvora Technologies | Apps & Projects</title>
   </head>
   <body>
-    <div id="root">
-      <main data-static-fallback>
-        <h1>Clyvora</h1>
-        <ul>
-          <li><img src="/apps/lens.webp" alt="" width="420" height="420"><h2>Lens</h2><p>Explore JSON &amp; CSV.</p><a href="https://www.lens.clyvora.tech/">Open Lens ↗</a></li>
-          <li><img src="/apps/convert.webp" alt="" width="420" height="420"><h2>Convert</h2><p>Convert audio &amp; video.</p><a href="https://www.convert.clyvora.tech/">Open Convert ↗</a></li>
-          <li><img src="/apps/liveopweg.svg" alt="" width="420" height="420"><h2>Live op Weg <span class="app-translation">(Live on the Go)</span></h2><p>See live train locations.</p><a href="https://liveopweg.nl/">Open Live op Weg ↗</a></li>
-        </ul>
-      </main>
-    </div>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -131,6 +131,30 @@ function BrandName() {
   return <h1 className="brand-name" aria-label="Clyvora"><Morph className="brand-word" scale={false} spring>{['Clyvora', 'ClyvoraTech', 'Clyvora\nTechnologies'][index]}</Morph></h1>
 }
 
+function ScrollSignal() {
+  const [progress, setProgress] = useState(0)
+  useEffect(() => {
+    const update = () => {
+      const range = document.documentElement.scrollHeight - window.innerHeight
+      setProgress(range > 0 ? window.scrollY / range : 0)
+    }
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => {
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+    }
+  }, [])
+  return <button className="scroll-signal" type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path className="scroll-signal-track" d="M37.5 10.5A19 19 0 1 0 37.5 37.5" />
+      <path className="scroll-signal-progress" d="M37.5 10.5A19 19 0 1 0 37.5 37.5" pathLength="1" style={{ strokeDashoffset: 1 - progress }} />
+      <path d="M30 19a8 8 0 1 0 0 10" />
+    </svg>
+  </button>
+}
+
 function App() {
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark')
   useEffect(() => {
@@ -139,6 +163,7 @@ function App() {
     try { localStorage.setItem('clyvora-theme', theme) } catch { /* Theme remains usable without storage. */ }
   }, [theme])
   return <div className="site-shell">
+    <ScrollSignal />
     <a href="#apps" className="skip-link">Skip to apps</a>
     <header className="site-header">
       <div className="brand">

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Analytics } from '@vercel/analytics/react'
-import { ArrowLeft, ArrowRight, ArrowUpRight, Moon, Sun } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Copy, Moon, Sun } from 'lucide-react'
 import { TextMorph } from 'torph/react'
 import './styles.css'
 
@@ -36,7 +36,10 @@ function AppGallery() {
     }
   }, [])
   const running = !hovered && !focused && !hidden && !reduced
-  const choose = (index: number) => { setSelected(index); setCycle(value => value + 1) }
+  const choose = (index: number) => {
+    setSelected(index)
+    setCycle(value => value + 1)
+  }
   const app = apps[selected]
   const step = (delta: number) => choose((selected + delta + apps.length) % apps.length)
   return <section className="gallery" aria-label="Explore Clyvora apps" aria-roledescription="carousel" data-running={running} data-reduced={reduced}
@@ -56,10 +59,13 @@ function AppGallery() {
           <h2 id={`${app.id}-title`}><Morph>{app.name}</Morph><span className="app-translation"><Morph>{'translation' in app ? `(${app.translation})` : ''}</Morph></span></h2>
           <p className="app-tagline"><Morph>{app.description}</Morph></p>
           <p key={app.id} className="app-description">{app.detail}</p>
-          <a className="open-app" href={app.href} target="_blank" rel="noreferrer">
-            <Morph>{`Open ${app.name}`}</Morph><ArrowUpRight size={20} strokeWidth={1.65} aria-hidden="true" />
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
+          <div className="app-actions">
+            <a className="open-app" href={app.href} target="_blank" rel="noreferrer">
+              <Morph>{`Open ${app.name}`}</Morph><ArrowUpRight size={20} strokeWidth={1.65} aria-hidden="true" />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <ShareButton href={app.href} />
+          </div>
         </div>
       </article>
     </div>
@@ -79,7 +85,24 @@ function AppGallery() {
   </section>
 }
 
-function About() {
+function ShareButton({ href }: { href: string }) {
+  const [copied, setCopied] = useState(false)
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(href)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1800)
+    } catch {
+      setCopied(false)
+    }
+  }
+  return <button className="copy-link" type="button" onClick={copyLink} aria-label={copied ? 'App link copied' : 'Copy app link'}>
+    {copied ? <Check size={17} aria-hidden="true" /> : <Copy size={17} aria-hidden="true" />}
+    <span>{copied ? 'Copied' : 'Copy link'}</span>
+  </button>
+}
+
+function About({ onLogoClick }: { onLogoClick: () => void }) {
   const section = useRef<HTMLElement>(null)
   useEffect(() => {
     const element = section.current
@@ -96,7 +119,7 @@ function About() {
     return () => { observer.disconnect(); motion.removeEventListener('change', reveal) }
   }, [])
   return <section ref={section} id="about" className="about-section" aria-labelledby="about-title" tabIndex={-1}>
-    <div className="about-art" aria-hidden="true">
+    <div className="about-art" aria-hidden="true" onClick={onLogoClick}>
       <svg viewBox="0 0 48 48" fill="none"><path d="M37.5 10.5A19 19 0 1 0 37.5 37.5" stroke="currentColor" strokeWidth="8" strokeLinecap="round" /><path d="M30 19a8 8 0 1 0 0 10" stroke="currentColor" strokeWidth="5" strokeLinecap="round" /></svg>
     </div>
     <div className="about-copy">
@@ -164,27 +187,47 @@ function ScrollSignal() {
 
 function App() {
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark')
+  const [easterEgg, setEasterEgg] = useState(false)
+  const [easterEggSource, setEasterEggSource] = useState<'header' | 'about'>('header')
+  const logoClicks = useRef(0)
+  const logoTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const handleLogoClick = (source: 'header' | 'about' = 'header') => {
+    logoClicks.current += 1
+    clearTimeout(logoTimer.current)
+    if (logoClicks.current >= 5) {
+      logoClicks.current = 0
+      setEasterEggSource(source)
+      setEasterEgg(true)
+      logoTimer.current = setTimeout(() => setEasterEgg(false), 1600)
+    } else {
+      logoTimer.current = setTimeout(() => { logoClicks.current = 0 }, 1400)
+    }
+  }
   useEffect(() => {
     document.documentElement.dataset.theme = theme
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#151515' : '#fafafa')
     try { localStorage.setItem('clyvora-theme', theme) } catch { /* Theme remains usable without storage. */ }
   }, [theme])
-  return <div className="site-shell">
+  return <div className={`site-shell${easterEgg ? ` easter-egg easter-egg-${easterEggSource}` : ''}`}>
     <ScrollSignal />
     <a href="#apps" className="skip-link">Skip to apps</a>
     <header className="site-header">
       <div className="brand">
-        <svg className="brand-mark" width="46" height="46" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-          <path d="M37.5 10.5A19 19 0 1 0 37.5 37.5" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-          <path d="M30 19a8 8 0 1 0 0 10" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-        </svg>
+        <button className="brand-mark-button" type="button" aria-label="Clyvora logo" onClick={() => handleLogoClick('header')}>
+          <svg className="brand-mark" width="46" height="46" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M37.5 10.5A19 19 0 1 0 37.5 37.5" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
+            <path d="M30 19a8 8 0 1 0 0 10" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+          </svg>
+        </button>
         <BrandName />
       </div>
       <button className="theme-toggle" type="button" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>
-        {theme === 'dark' ? <Sun size={19} strokeWidth={1.6} /> : <Moon size={19} strokeWidth={1.6} />}
+        <span key={theme} className="theme-icon" aria-hidden="true">
+          {theme === 'dark' ? <Sun size={19} strokeWidth={1.6} /> : <Moon size={19} strokeWidth={1.6} />}
+        </span>
       </button>
     </header>
-    <main id="apps" tabIndex={-1}><AppGallery /><About /></main>
+    <main id="apps" tabIndex={-1}><AppGallery /><About onLogoClick={() => handleLogoClick('about')} /></main>
     <footer className="site-footer">
       <span>© {new Date().getFullYear()} Clyvora</span>
     </footer>

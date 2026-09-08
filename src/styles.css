@@ -28,6 +28,8 @@
 
 * {
   box-sizing:border-box;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
 html {
@@ -167,6 +169,16 @@ button {
   display:block;
   flex-shrink:0;
 }
+.brand-mark-button {
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+  cursor:default;
+}
 
 .brand h1 {
   margin:0;
@@ -193,6 +205,14 @@ button {
 .theme-toggle:hover {
   background:var(--surface);
   color:var(--text);
+}
+.theme-icon {
+  display:grid;
+  animation:theme-switch .45s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes theme-switch {
+  from { opacity:0; transform:rotate(-80deg) scale(.55); }
+  to { opacity:1; transform:rotate(0) scale(1); }
 }
 
 .gallery {
@@ -290,12 +310,68 @@ button {
   min-width:178px;
   min-height:48px;
   padding:13px 18px;
-  border-radius:8px;
+  border-radius:8px 0 0 8px;
   background:var(--button);
   color:var(--button-ink);
   font-size:14px;
   font-weight:550;
   transition:transform .2s,box-shadow .2s;
+}
+.app-actions {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:0;
+}
+.copy-link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:48px;
+  width:48px;
+  max-width:48px;
+  padding:0;
+  flex-shrink:0;
+  gap:0;
+  border:0;
+  border-radius:0 8px 8px 0;
+  background:#151515;
+  color:#f1f1ee;
+  font-size:13px;
+  overflow:hidden;
+  white-space:nowrap;
+  transition:max-width .35s cubic-bezier(.2,.65,.2,1),padding .35s cubic-bezier(.2,.65,.2,1),gap .35s cubic-bezier(.2,.65,.2,1),color .2s,border-color .2s,background .2s;
+}
+.copy-link span {
+  display:none;
+}
+.open-app:hover + .copy-link,
+.open-app:focus-visible + .copy-link,
+.copy-link:hover,
+.copy-link:focus-visible {
+  width:140px;
+  max-width:140px;
+  padding:12px 15px;
+  gap:8px;
+  border-color:var(--surface-hover);
+}
+.open-app:hover + .copy-link span,
+.open-app:focus-visible + .copy-link span,
+.copy-link:hover span,
+.copy-link:focus-visible span {
+  display:inline;
+}
+.copy-link:hover,
+.copy-link:focus-visible {
+  background:#151515;
+  color:#f1f1ee;
+}
+@media(max-width:600px) {
+  .app-actions { gap:8px; }
+  .open-app { border-radius:8px; }
+  .copy-link { width:auto; max-width:none; padding:12px 15px; gap:8px; border-radius:8px; }
+  .copy-link span { display:inline; }
 }
 
 .open-app svg {
@@ -474,12 +550,42 @@ html { scroll-behavior:smooth; }
 .brand-mark path, .about-art svg path { transform-box:view-box; transform-origin:24px 24px; }
 @media(hover:hover) and (prefers-reduced-motion:no-preference) {
   .brand:hover .brand-mark path:first-child,
-  .about-art:hover svg path:first-child { animation:logo-turn .95s cubic-bezier(.2,.7,.2,1) both; }
+  .brand-mark-button:hover .brand-mark path:first-child { animation:logo-turn .95s cubic-bezier(.2,.7,.2,1) both; }
   .brand:hover .brand-mark path:last-child,
-  .about-art:hover svg path:last-child { animation:logo-counterturn 1.1s cubic-bezier(.2,.7,.2,1) both; }
+  .brand-mark-button:hover .brand-mark path:last-child { animation:logo-counterturn 1.1s cubic-bezier(.2,.7,.2,1) both; }
 }
 @keyframes logo-turn { 0% { transform:rotate(0); } 65% { transform:rotate(380deg); } 100% { transform:rotate(360deg); } }
 @keyframes logo-counterturn { 0% { transform:rotate(0); } 65% { transform:rotate(-380deg); } 100% { transform:rotate(-360deg); } }
+.easter-egg .brand-mark-button .brand-mark {
+  animation:logo-party .8s cubic-bezier(.2,.8,.2,1) both;
+}
+.easter-egg .brand-word {
+  animation:brand-party .8s cubic-bezier(.2,.8,.2,1) both;
+}
+.easter-egg-about .about-art svg {
+  animation:about-party 1.2s cubic-bezier(.2,.8,.2,1) both;
+}
+.easter-egg-about .brand-mark-button .brand-mark,
+.easter-egg-about .brand-word {
+  animation:none;
+}
+@keyframes logo-party {
+  0% { transform:rotate(0) scale(1); }
+  45% { transform:rotate(18deg) scale(1.25); }
+  100% { transform:rotate(360deg) scale(1); }
+}
+@keyframes brand-party {
+  0% { transform:translateX(0); }
+  35% { transform:translateX(5px) rotate(-2deg); }
+  70% { transform:translateX(-4px) rotate(2deg); }
+  100% { transform:translateX(0); }
+}
+@keyframes about-party {
+  0% { transform:rotate(0) scale(1); }
+  35% { transform:rotate(-14deg) scale(1.12); }
+  70% { transform:rotate(10deg) scale(.94); }
+  100% { transform:rotate(0) scale(1); }
+}
 @media(max-width:600px) {
   .site-header { padding-left:0; padding-right:44px; }
   .brand { position:absolute; left:50%; transform:translateX(-50%); max-width:calc(100% - 72px); }

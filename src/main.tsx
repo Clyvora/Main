@@ -11,9 +11,9 @@ const apps = [
   { id: 'liveopweg', name: 'Live op Weg', translation: 'Live on the Go', description: 'See live train locations.', detail: 'Follow trains on the map and see where they are as they travel. A live view of the railway, at a glance.', image: '/apps/liveopweg.svg', href: 'https://liveopweg.nl/' },
 ] as const
 
-function Morph({ children, className, scale = true }: { children: string; className?: string; scale?: boolean }) {
+function Morph({ children, className, scale = true, spring = false }: { children: string; className?: string; scale?: boolean; spring?: boolean }) {
   const supported = typeof Element.prototype.animate === 'function' && typeof Element.prototype.getAnimations === 'function'
-  return supported ? <TextMorph as="span" className={className} duration={550} scale={scale} respectReducedMotion>{children}</TextMorph> : <span className={className}>{children}</span>
+  return supported ? <TextMorph as="span" className={className} duration={550} ease={spring ? { stiffness: 180, damping: 12, mass: 0.8 } : undefined} scale={scale} respectReducedMotion>{children}</TextMorph> : <span className={className}>{children}</span>
 }
 
 function AppGallery() {
@@ -128,7 +128,7 @@ function BrandName() {
       document.removeEventListener('visibilitychange', sync)
     }
   }, [])
-  return <h1 className="brand-name" aria-label="Clyvora"><Morph className="brand-word" scale={false}>{['Clyvora', 'ClyvoraTech', 'Clyvora\nTechnologies'][index]}</Morph></h1>
+  return <h1 className="brand-name" aria-label="Clyvora"><Morph className="brand-word" scale={false} spring>{['Clyvora', 'ClyvoraTech', 'Clyvora\nTechnologies'][index]}</Morph></h1>
 }
 
 function App() {

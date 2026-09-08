@@ -110,14 +110,21 @@ function About() {
 }
 
 function BrandName() {
+  const names = ['Clyvora', 'ClyvoraTech', 'Clyvora Technologies']
   const [index, setIndex] = useState(0)
   useEffect(() => {
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
     let timer: ReturnType<typeof setInterval> | undefined
     const sync = () => {
       clearInterval(timer)
-      if (motion.matches) { setIndex(0); return }
-      if (!document.hidden) timer = setInterval(() => setIndex(value => (value + 1) % 3), 4500)
+      setIndex(0)
+      document.title = names[0]
+      if (motion.matches) return
+      if (!document.hidden) timer = setInterval(() => setIndex(value => {
+        const next = (value + 1) % names.length
+        document.title = names[next]
+        return next
+      }), 4500)
     }
     sync()
     motion.addEventListener('change', sync)
@@ -128,7 +135,7 @@ function BrandName() {
       document.removeEventListener('visibilitychange', sync)
     }
   }, [])
-  return <h1 className="brand-name" aria-label="Clyvora"><Morph className="brand-word" scale={false} spring>{['Clyvora', 'ClyvoraTech', 'Clyvora\nTechnologies'][index]}</Morph></h1>
+  return <h1 className="brand-name" aria-label="Clyvora"><Morph className="brand-word" scale={false} spring>{[names[0], names[1], 'Clyvora\nTechnologies'][index]}</Morph></h1>
 }
 
 function ScrollSignal() {

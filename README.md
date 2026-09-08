@@ -24,6 +24,12 @@ pnpm dev
 
 Run `pnpm build` to type-check and create a production build.
 
+## Homepage design
+
+The homepage is a two-app gallery with local WebP artwork, a monochrome brand mark, and short links into Lens and Convert. Cards enter once, then respond to fine-pointer movement; reduced-motion preferences disable movement. Both themes are supported, with dark as the default. The optional `clyvora-theme` localStorage value stores only the visitor's appearance preference. No animation library or remote font is required.
+
+The generated dimensional app artwork is stored in `public/apps/`. The static HTML fallback retains both product links if JavaScript is unavailable. Longer product and privacy information remains on the About page.
+
 ## License
 
 This website's original source code and content are proprietary. Copyright (c) 2026 Clyvora contributors. All rights reserved. See [LICENSE](LICENSE).

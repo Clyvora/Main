@@ -6,23 +6,24 @@
     <meta name="description" content="Focused Clyvora tools for structured data, local media conversion, private image resizing, and supported public-link audio." />
     <meta name="author" content="Clyvora" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-    <meta name="theme-color" content="#090909" />
+    <meta name="theme-color" content="#151515" />
+    <script src="/theme-init.js"></script>
     <link rel="canonical" href="https://www.clyvora.tech/" />
-    <link rel="icon" type="image/png" sizes="any" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/brand-mark.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:site_name" content="Clyvora" />
     <meta property="og:title" content="Clyvora Technologies — Private Browser Tools" />
     <meta property="og:description" content="Focused tools with explicit local-file and network privacy boundaries." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.clyvora.tech/" />
-    <meta property="og:image" content="https://www.clyvora.tech/og.png" />
-    <meta property="og:image:width" content="1730" />
-    <meta property="og:image:height" content="909" />
-    <meta property="og:image:alt" content="Clyvora private browser tools for data and media" />
+    <meta property="og:image" content="https://www.clyvora.tech/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Clyvora browser tools" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Clyvora Technologies — Private Browser Tools" />
     <meta name="twitter:description" content="Focused tools with explicit local-file and network privacy boundaries." />
-    <meta name="twitter:image" content="https://www.clyvora.tech/og.png" />
+    <meta name="twitter:image" content="https://www.clyvora.tech/social-card.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -33,7 +34,7 @@
             "name": "Clyvora",
             "alternateName": ["Clyvora Tech", "Clyvora Technologies"],
             "url": "https://www.clyvora.tech/",
-            "logo": "https://www.clyvora.tech/favicon.png",
+            "logo": "https://www.clyvora.tech/brand-mark.svg",
             "description": "Clyvora builds focused data and media tools with explicit local-file and network privacy boundaries.",
             "sameAs": ["https://github.com/Clyvora"]
           },
@@ -58,29 +59,28 @@
       }
     </script>
     <style>
-      [data-static-fallback] { box-sizing: border-box; min-height: 100vh; padding: 72px max(24px, calc((100vw - 960px) / 2)); color: #eeeae1; background: #090909; font: 16px/1.65 system-ui, sans-serif; }
-      [data-static-fallback] h1 { max-width: 760px; margin: 0 0 24px; font-size: clamp(42px, 7vw, 76px); line-height: 1.02; letter-spacing: -.05em; }
-      [data-static-fallback] h2 { margin-top: 52px; font-size: 28px; }
-      [data-static-fallback] p { max-width: 720px; color: #aaa8a1; }
-      [data-static-fallback] ul { display: grid; gap: 16px; padding: 0; list-style: none; }
-      [data-static-fallback] li { padding: 20px; border: 1px solid #2d2d2a; border-radius: 14px; }
-      [data-static-fallback] a { color: #eeeae1; }
+      body { margin: 0; background: var(--page, #151515); }
+      [data-static-fallback] { box-sizing: border-box; max-width: 1120px; margin: auto; padding: 64px 24px; color: #f1f1ee; font: 16px/1.5 system-ui, sans-serif; }
+      [data-static-fallback] h1 { margin: 0 0 48px; font-size: 43px; text-align: center; }
+      [data-static-fallback] h2 { font-size: 30px; margin: 16px 0 8px; }
+      [data-static-fallback] p { color: #a7a7a3; }
+      [data-static-fallback] ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 0; list-style: none; }
+      [data-static-fallback] li { padding: 30px; background: #202020; border-radius: 26px; }
+      [data-static-fallback] img { display: block; width: min(230px, 100%); height: auto; margin: auto; }
+      [data-static-fallback] a { color: #f1f1ee; }
+      @media (max-width: 560px) { [data-static-fallback] ul { grid-template-columns: 1fr; } }
     </style>
     <title>Clyvora Technologies | Private Browser Tools</title>
   </head>
   <body>
     <div id="root">
       <main data-static-fallback>
-        <h1>Clyvora Technologies builds focused data and media tools.</h1>
-        <p>Lens, Convert, and Resize process supported local files on your device. Experimental Fetch sends a submitted public URL to Clyvora’s resolver and the supported source platform. Cookie-free Vercel Web Analytics records anonymous site traffic, never selected file contents.</p>
-        <h2>Use a Clyvora tool</h2>
+        <h1>Clyvora</h1>
         <ul>
-          <li><a href="https://www.lens.clyvora.tech/"><strong>Clyvora Lens</strong></a> — inspect, search, filter, and convert JSON and CSV files locally in your browser.</li>
-          <li><a href="https://www.convert.clyvora.tech/"><strong>Clyvora Convert — Beta</strong></a> — convert local audio and video in your browser. The next release also combines image resizing and explicit public SoundCloud retrieval.</li>
-          <li><a href="https://www.resize.clyvora.tech/"><strong>Resize — existing tool during migration</strong></a> — resize, compress, and convert local images.</li>
-          <li><a href="https://www.fetch.clyvora.tech/"><strong>Fetch — existing tool during migration</strong></a> — retrieve available audio from supported public links when you have permission.</li>
+          <li><img src="/apps/lens.webp" alt="" width="420" height="420"><h2>Lens</h2><p>Explore JSON &amp; CSV.</p><a href="https://www.lens.clyvora.tech/">Open Lens ↗</a></li>
+          <li><img src="/apps/convert.webp" alt="" width="420" height="420"><h2>Convert</h2><p>Convert audio &amp; video.</p><a href="https://www.convert.clyvora.tech/">Open Convert ↗</a></li>
         </ul>
-        <p><a href="/about/">About Clyvora</a> · <a href="https://github.com/Clyvora">Official source code on GitHub</a></p>
+        <p><a href="/about/">About</a> · <a href="https://github.com/Clyvora">GitHub</a></p>
       </main>
     </div>
     <script type="module" src="/src/main.tsx"></script>

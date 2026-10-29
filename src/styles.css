@@ -232,6 +232,8 @@ button {
   min-height:410px;
 }
 .app-art { display:grid; place-items:center; }
+.app-art img[src='/apps/convert-cat.webp'] { border-radius:24px; }
+.app-selector img[src='/apps/convert-cat.webp'] { border-radius:8px; }
 .app-art img {
   width:min(100%,390px);
   height:auto;

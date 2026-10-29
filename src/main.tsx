@@ -7,7 +7,7 @@ import './styles.css'
 
 const apps = [
   { id: 'lens', name: 'Lens', description: 'Explore JSON & CSV.', detail: 'Open your data, find what matters, and export it in the format you need. All in your browser.', image: '/apps/lens.webp', href: 'https://www.lens.clyvora.tech/' },
-  { id: 'convert', name: 'Convert', description: 'Convert audio & video.', detail: 'Choose a file or paste a SoundCloud link. Pick your format, adjust the quality, and download the result.', image: '/apps/convert-cat.webp', href: 'https://www.convert.clyvora.tech/' },
+  { id: 'convert', name: 'mewvi', description: 'Download. Convert. Keep.', detail: 'Download supported public media or convert audio and video on your device. Choose an output and keep the result.', image: '/apps/convert-cat.webp', href: 'https://mewvi.xyz/' },
   { id: 'liveopweg', name: 'Live op Weg', translation: 'Live on the Go', description: 'See live train locations.', detail: 'Follow trains on the map and see where they are as they travel. A live view of the railway, at a glance.', image: '/apps/liveopweg.svg', href: 'https://liveopweg.nl/' },
 ] as const
 

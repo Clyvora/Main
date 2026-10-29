@@ -5,15 +5,16 @@
 ## Official projects
 
 - [Clyvora Lens](https://www.lens.clyvora.tech/) inspects, searches, filters, and converts JSON and CSV files locally in the browser.
-- [mewvi by Clyvora](https://mewvi.xyz/) downloads supported public media and converts local audio and video. Formerly Clyvora Convert; its existing URL remains in place until a new domain is connected.
+- [mewvi by Clyvora](https://mewvi.xyz/) downloads supported public media and converts local audio and video. Formerly Clyvora Convert; mewvi.xyz is its canonical address. Currently in beta, with provider-dependent download and collection support.
+- [Live op Weg](https://liveopweg.nl/) shows live train locations on a map.
 
-Existing [Resize](https://www.resize.clyvora.tech/) and [Fetch](https://www.fetch.clyvora.tech/) links remain available during migration. This catalogue prepares the next release; it does not claim that the merger is deployed. Coordinate publication with Convert and ClyvoraAPI rollout. No redirects or domains were changed.
+Existing [Resize](https://www.resize.clyvora.tech/) and [Fetch](https://www.fetch.clyvora.tech/) links remain available. The former Convert domains remain available during the move to mewvi; new catalogue links point to mewvi.xyz. Repository names and internal identifiers may retain `Convert` for compatibility.
 
 Only already publicly discoverable projects belong in this catalogue. A local repository or planned product alone does not establish permission to publish its identity or a URL.
 
 The source for Clyvora projects is published through the [Clyvora GitHub organization](https://github.com/Clyvora).
 
-Lens, Convert, and Resize process supported local files on-device. Fetch is networked: it sends the submitted public URL to ClyvoraAPI and the supported source platform. The deployed sites use Vercel Web Analytics for anonymous, cookie-free page-view statistics. No custom analytics events are configured, and selected filenames, file contents, and submitted URLs are not sent to analytics.
+Lens, mewvi, and Resize process supported local files on-device. mewvi's public-link downloads contact Clyvora infrastructure and source platforms; its local conversion does not upload files. Fetch also sends submitted public URLs to ClyvoraAPI and supported source platforms. Live op Weg uses online railway data. This website uses Vercel Web Analytics for anonymous, cookie-free page-view statistics. No custom analytics events are configured, and selected filenames, file contents, and submitted URLs are not sent to analytics.
 
 ## Development
 
@@ -26,9 +27,9 @@ Run `pnpm build` to type-check and create a production build.
 
 ## Homepage design
 
-The homepage is a two-app gallery with local WebP artwork, a monochrome brand mark, and short links into Lens and Convert. Cards enter once, then respond to fine-pointer movement; reduced-motion preferences disable movement. Both themes are supported, with dark as the default. The optional `clyvora-theme` localStorage value stores only the visitor's appearance preference. No animation library or remote font is required.
+The homepage is a three-project gallery with local artwork, a monochrome Clyvora brand mark, and links to Lens, mewvi, and Live op Weg. mewvi keeps its own cat artwork; Clyvora keeps its original brand mark. The gallery responds to fine-pointer movement and uses Torph for text transitions; reduced-motion preferences disable movement. Both themes are supported, with dark as the default. The optional `clyvora-theme` localStorage value stores only the visitor's appearance preference. No remote font is required.
 
-The generated dimensional app artwork is stored in `public/apps/`. The static HTML fallback retains both product links if JavaScript is unavailable. Longer product and privacy information remains on the About page.
+App artwork is stored in `public/apps/`. The interactive homepage requires JavaScript. The separate static About page provides project links and longer product and privacy information without requiring JavaScript.
 
 ## License
 

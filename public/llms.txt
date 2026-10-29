@@ -7,8 +7,9 @@ Clyvora tools process selected files locally on the user's device. They do not r
 ## Official projects
 
 - [Clyvora Lens](https://www.lens.clyvora.tech/): Inspect, search, filter, and convert JSON and CSV files locally in the browser.
-- [mewvi by Clyvora](https://mewvi.xyz/): Public media downloads and local audio/video conversion. Formerly Clyvora Convert. Local files stay on-device; public links use Clyvora infrastructure and source platforms. Provider availability varies.
-- Existing tools during migration: [Resize](https://www.resize.clyvora.tech/) for local images and [Fetch](https://www.fetch.clyvora.tech/) for supported public links. The merger is not yet described as deployed.
+- [mewvi by Clyvora](https://mewvi.xyz/): Public media downloads and local audio/video conversion. Formerly Clyvora Convert; mewvi.xyz is its canonical address. Currently in beta. Local files stay on-device; public links use Clyvora infrastructure and source platforms. Downloads, playlists, and public collection availability vary by provider.
+- [Live op Weg](https://liveopweg.nl/): Live train locations on a map.
+- Existing tools: [Resize](https://www.resize.clyvora.tech/) for local images and [Fetch](https://www.fetch.clyvora.tech/) for supported public links.
 
 Requested public-link retrieval sends the submitted URL to ClyvoraAPI and the supported source platform. Local files remain on-device. This public catalogue includes only already publicly discoverable projects.
 - [Clyvora on GitHub](https://github.com/Clyvora): Official source repositories for Clyvora projects.

@@ -233,6 +233,8 @@ button {
 }
 .app-art { display:grid; place-items:center; }
 .app-art img[src='/apps/convert-cat.webp'] { border-radius:24px; }
+:root[data-theme='light'] .app-art img[src='/apps/lens.svg'],
+:root[data-theme='light'] .app-selector img[src='/apps/lens.svg'] { filter:brightness(0); }
 .app-selector img[src='/apps/convert-cat.webp'] { border-radius:8px; }
 .app-art img {
   width:min(100%,390px);

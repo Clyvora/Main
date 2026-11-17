@@ -1,0 +1,89 @@
+{
+  "name": "Clyvora Display",
+  "version": "1.1.0",
+  "styles": {
+    "Regular": {
+      "weight": 400,
+      "italic": false
+    },
+    "Italic": {
+      "weight": 400,
+      "italic": true
+    },
+    "Bold": {
+      "weight": 700,
+      "italic": false
+    }
+  },
+  "unitsPerEm": 1000,
+  "xHeight": 540,
+  "capHeight": 720,
+  "characters": "oclijvyunhmabdpqgertfszxkwOCGQAVWMNHILTEFBPRDUJSZXKY0123456789 .,:;-_!?'\"/\\()[]{}+=<>|~`^*#%&$@£€©®°•×÷±–—…’‘“” ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïñòóôõöùúûüýÿĀāĂăĄąĆćĈĉĊċČčĎďĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĨĩĪīĬĭĮįİĴĵĶķĹĺĻļĽľŃńŅņŇňŌōŎŏŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŨũŪūŬŭŮůŲųŴŵŶŷŸŹźŻżŽžøØæÆßðÐþÞĳĲ",
+  "encodedCharacters": 281,
+  "glyphs": 282,
+  "monogramCodepoint": "U+E000",
+  "features": {
+    "kern": "Optical pair spacing",
+    "dlig": "Optional joined y-v brand ligature"
+  },
+  "copyright": "Copyright (c) 2026 Clyvora contributors. All rights reserved.",
+  "source": "scripts/brand/build.py",
+  "files": {
+    "brand/clyvora-display-specimen.png": {
+      "bytes": 110987,
+      "sha256": "87f68d7d3a37a707cb865d6bffeea9ac9801c4c2a6792d411e0296810489fa0d"
+    },
+    "brand/clyvora-icon.svg": {
+      "bytes": 688,
+      "sha256": "1d3788d1cd48c6dbc686dc28f16865f0d2be356578c20e37a1a63ef7e15b57fb"
+    },
+    "brand/clyvora-monogram-black.svg": {
+      "bytes": 443,
+      "sha256": "a0f578ed85f989ab4fa5723f49ef8ec072aa0cbf5f564e45a5bdc93ebe032946"
+    },
+    "brand/clyvora-monogram-white.svg": {
+      "bytes": 443,
+      "sha256": "57dd46fbf3764eb984f88cddd41dbc37d907767b40a5ab6371007a0a1664ec21"
+    },
+    "brand/clyvora-monogram.svg": {
+      "bytes": 448,
+      "sha256": "06c73dcee58baa807e8c1627a1ca75dc1b8d6a7cfc1374cbd075c2c93acebdfa"
+    },
+    "brand/clyvora-wordmark-black.svg": {
+      "bytes": 1665,
+      "sha256": "afe957e513f92a0bb0fa7e0de01af4ee2631e480f5147f82f4f2e98e2507e7c4"
+    },
+    "brand/clyvora-wordmark-white.svg": {
+      "bytes": 1665,
+      "sha256": "ebb8beac5f99255b394600e69d912f2fd388d79d92fa32a0a5ccaea89b1ce557"
+    },
+    "brand/clyvora-wordmark.svg": {
+      "bytes": 1670,
+      "sha256": "b98630fdedcc7f8d16d094ee74409da28f225d932bc568e6278d39c92a9841cc"
+    },
+    "fonts/ClyvoraDisplay-Bold.ttf": {
+      "bytes": 48220,
+      "sha256": "154350e0c04fa613a572231319bbdd59c6b6586f8d59bcaa11762d0152b99500"
+    },
+    "fonts/ClyvoraDisplay-Bold.woff2": {
+      "bytes": 11688,
+      "sha256": "1929251267e91ae70144e43394de35e9108f2d5445f60d487f415c6897e64a73"
+    },
+    "fonts/ClyvoraDisplay-Italic.ttf": {
+      "bytes": 68460,
+      "sha256": "d4adf06b9bd4bf0b1ce465e1e49570a75cbe465f59cd803c6bf76886b830bf7b"
+    },
+    "fonts/ClyvoraDisplay-Italic.woff2": {
+      "bytes": 15992,
+      "sha256": "1643fc1e49999e419ea43c8e957053e262c9384a2879062703175e3cfaa9ff0e"
+    },
+    "fonts/ClyvoraDisplay-Regular.ttf": {
+      "bytes": 66320,
+      "sha256": "6fc81c1e8bfa7045191686e924b716030010cb6bec88443523286e92f15e3b99"
+    },
+    "fonts/ClyvoraDisplay-Regular.woff2": {
+      "bytes": 14648,
+      "sha256": "eb4ab904aaa4f6a67ca214c1f2bede6dc1fb7a648e8b3e3a79d4e492d39879a7"
+    }
+  }
+}

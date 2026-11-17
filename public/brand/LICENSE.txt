@@ -1,0 +1,10 @@
+Copyright (c) 2026 Clyvora contributors. All rights reserved.
+
+Clyvora Display, the Clyvora wordmark, the yv monogram, their source outlines,
+and the accompanying identity artwork are original Clyvora brand materials.
+They are covered by the proprietary license at the root of the Clyvora Main
+repository. This download does not grant a general font or logo license.
+Use outside Clyvora requires prior written permission from the copyright holder.
+
+Third-party build tools retain their own licenses. No third-party font outlines
+are bundled or used as the source of Clyvora Display.

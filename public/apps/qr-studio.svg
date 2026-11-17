@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Clyvora QR Studio</title>
+  <defs>
+    <linearGradient id="tile" x1="22" y1="12" x2="111" y2="119" gradientUnits="userSpaceOnUse"><stop stop-color="#83e1df"/><stop offset=".5" stop-color="#31aaa9"/><stop offset="1" stop-color="#166f77"/></linearGradient>
+  </defs>
+  <rect x="8" y="12" width="112" height="108" rx="27" fill="#175e66"/>
+  <rect x="8" y="8" width="112" height="108" rx="27" fill="url(#tile)"/>
+  <rect x="8.75" y="8.75" width="110.5" height="106.5" rx="26.25" stroke="#fff" stroke-opacity=".3" stroke-width="1.5"/>
+  <g stroke="#f4fffc" stroke-width="6">
+    <rect x="29" y="29" width="25" height="25" rx="6"/>
+    <rect x="74" y="29" width="25" height="25" rx="6"/>
+    <rect x="29" y="74" width="25" height="25" rx="6"/>
+  </g>
+  <g fill="#f4fffc">
+    <rect x="38" y="38" width="7" height="7" rx="1.5"/><rect x="83" y="38" width="7" height="7" rx="1.5"/><rect x="38" y="83" width="7" height="7" rx="1.5"/>
+    <rect x="71" y="71" width="11" height="11" rx="2.5"/><rect x="91" y="71" width="11" height="11" rx="2.5"/><rect x="71" y="91" width="11" height="11" rx="2.5"/><rect x="91" y="91" width="11" height="11" rx="2.5"/>
+  </g>
+</svg>
